@@ -1,0 +1,364 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#09182a"><title>FWC v2.13 · Clean Reel</title><style>
+:root{--bg:#09182a;--panel:#12243a;--gold:#edc778;--muted:#9eafc2;--line:#34485d}*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:#f4f5f8;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;height:100%}body{min-height:100svh;overflow:hidden}.app{max-width:430px;min-height:100svh;margin:auto;padding:10px 12px calc(10px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:0}.top{display:flex;justify-content:space-between;align-items:center;gap:6px;margin:0 0 8px}.brand{font-weight:900;letter-spacing:1px;font-size:12px;color:var(--gold)}.tag{font-size:9px;color:#aebdd0;border:1px solid #506079;border-radius:5px;padding:4px 6px;white-space:nowrap}.map{position:relative;background:#182a3b;border:1px solid #41546a;border-radius:12px;overflow:hidden;height:min(26svh,230px);min-height:175px}.map svg{width:100%;height:100%;display:block}.maplabel{position:absolute;left:10px;top:10px;background:#09182add;padding:7px 10px;border-radius:5px;font-size:10px;letter-spacing:1.3px}.mapnote{position:absolute;bottom:7px;left:8px;right:8px;background:#09182ad9;padding:5px 7px;font-size:8px;color:#b7c4d1;border-radius:4px}.town{font-weight:700;font-size:14px;paint-order:stroke;stroke:#142438;stroke-width:3px;stroke-linejoin:round}.area{stroke:#d6deea;stroke-width:2.4;stroke-linejoin:round;transition:fill .8s ease}.area.neutral{fill:#54718b}.area.red{fill:#a83e4f}.area.win{fill:#d1a44b}.area.ravenna{fill:#e5e8ed}.area.bologna{fill:#a83e4f}.area{transition:fill 1.25s ease,filter 1.25s ease}.area.captured{filter:drop-shadow(0 0 8px #edc778)}.area.eliminated{opacity:.55}.area.transfer{stroke:#f7d98d;stroke-width:4}.region{fill:#53677c;stroke:#b3c3d2;stroke-width:2}.sea{fill:#183c55}.glow{stroke:#f6d78e;stroke-width:5;fill:none;opacity:0;transition:opacity .35s}.glow.on{opacity:1}.info{display:flex;justify-content:space-between;align-items:center;padding:8px 2px 3px}.info .left{font-size:10px;color:var(--gold);font-weight:800;letter-spacing:1.3px}.info .right{font-size:10px;color:var(--muted)}.teams{display:grid;grid-template-columns:1fr 30px 1fr;gap:4px;align-items:start;margin-top:2px}.team{text-align:center;min-width:0}.role{font-size:10px;color:var(--gold);font-weight:800;letter-spacing:1.3px;margin-bottom:6px}.crest{height:42px;width:42px;margin:0 auto 5px;border-radius:8px;border:2px solid #cad0d7;display:grid;place-items:center;font-size:22px;font-weight:900}.ces{background:#eee;color:#0e2037}.bol{background:#ac2338;color:#fff}.name{font-weight:850;font-size:14px;letter-spacing:.5px}.vs{text-align:center;padding-top:48px;color:#94a7bb;font-weight:900;font-size:12px}.dice{display:flex;justify-content:center;gap:6px;margin:9px 0 3px}.die{height:clamp(28px,9vw,40px);width:clamp(28px,9vw,40px);background:#24394f;border:1px solid #53657b;border-radius:7px;display:grid;place-items:center;box-shadow:0 3px 0 #071322;color:#879bb0;font-size:21px;line-height:1}.die.rolled{background:#f4f5f7;color:#10243a;border-color:#fff;box-shadow:0 3px 0 #b6c3d3}.die.rolling{animation:pop .32s ease infinite alternate}@keyframes pop{from{transform:translateY(-7px) rotate(-9deg)}to{transform:translateY(2px) rotate(8deg)}}.score{font-size:31px;font-weight:950;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1.05}.status{border-top:1px solid var(--line);margin-top:8px;padding:8px 2px;text-align:center;min-height:46px}.headline{color:var(--gold);font-size:13px;font-weight:900;letter-spacing:.5px}.sub{color:#aab9ca;font-size:9px;margin-top:4px;letter-spacing:.9px}.progress{height:4px;border-radius:6px;background:#33485f;overflow:hidden;margin:3px 0 8px}.bar{height:100%;width:0;background:var(--gold);transition:width .15s linear}.buttons{display:none}.reel-pill{display:inline-flex;align-items:center;justify-content:center;min-height:28px;padding:4px 8px;font-size:9px;background:#24394f;color:#fff;border:1px solid #506079;border-radius:9px;white-space:nowrap;text-align:center} .mode{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:7px;font-size:9px;color:var(--muted);letter-spacing:.4px}.mode button{pointer-events:none;cursor:default;opacity:1}button{border:0;border-radius:9px;min-height:42px;font-size:13px;font-weight:900;cursor:pointer}button.primary{background:var(--gold);color:#0a1b2e}button.secondary{background:#263c55;color:white}button:disabled{opacity:.5}.mode{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-top:7px;font-size:9px;color:var(--muted);letter-spacing:.4px}.mode button{min-height:28px;padding:4px 8px;font-size:9px;background:#24394f;color:#fff;border:1px solid #506079}.footer{text-align:center;color:#8597aa;font-size:8px;margin-top:6px;line-height:1.3}.footer br{display:block}@media(max-height:850px){.map{height:min(24svh,210px);min-height:165px}.brand{font-size:11px}.tag{font-size:8px;padding:3px 5px}.role{font-size:9px}.name{font-size:13px}.status{padding:6px 2px;min-height:42px}.headline{font-size:12px}.sub{font-size:8px}.score{font-size:28px}.standings{padding:7px 9px}.rank{font-size:8.5px}}@media(max-height:760px){.map{height:min(22svh,190px);min-height:150px}.info{padding-top:6px}.dice{margin-top:6px}.buttons button{min-height:38px;font-size:12px}.campaign{font-size:8px}.footer{font-size:7.5px}}
+.map svg{transform-origin:61% 62%;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}.map svg.zoom{transform:scale(1.95)}.map svg.zoom-more{transform:scale(2.25)}.owner-badge{pointer-events:none;transition:opacity .35s}.owner-badge circle{stroke:#e9d7a6;stroke-width:1.5}.owner-badge text{font-family:-apple-system,BlinkMacSystemFont,sans-serif;font-size:12px;font-weight:900;text-anchor:middle;dominant-baseline:central}.mapnote{z-index:3}.maplabel{z-index:3} .map{isolation:isolate}
+
+.map svg{transform:none!important;transition:none!important}.map{background:#183c55}.land{stroke:#d7e0e8;stroke-width:.18;stroke-linejoin:round}.italy{fill:#607c95}.neighbor{fill:#354f65}.mapnote{font-size:9px}.maplabel{font-size:10px}.geo-marker{transition:opacity .3s}.geo-marker circle{stroke:#e9c879;stroke-width:.55}.geo-marker text{font-weight:900;font-size:2.7px;text-anchor:middle;dominant-baseline:central}.geotown{font-size:1.65px;font-weight:800;fill:#fff;paint-order:stroke;stroke:#0b2034;stroke-width:.48px}.regionhint{font-size:3px;fill:#dce6ee;opacity:.8;letter-spacing:.4px}.map .maplabel{max-width:85%}
+ #realProvinceLayer path{vector-effect:non-scaling-stroke} .mapclubs{position:absolute;top:44px;left:8px;right:8px;display:flex;justify-content:space-between;gap:6px;pointer-events:none}.mapclubs span{font-size:9px;font-weight:800;letter-spacing:.5px;color:white;background:#0a1b2ddc;border:1px solid #8193a8;border-radius:5px;padding:4px 6px;white-space:nowrap}.geo-marker text{font-size:1.9px;font-weight:800;text-anchor:middle;dominant-baseline:middle;stroke:none}.geo-marker circle{stroke:#edcf8d;stroke-width:.3px}.mapnote{font-size:8px}
+.crest{position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.crest .club-logo{max-width:78%;max-height:83%;object-fit:contain;position:absolute;inset:0;margin:auto;filter:drop-shadow(0 1px 2px #0004)}
+.geo-marker image{pointer-events:none}
+.adj-status{font-size:10px;letter-spacing:.5px;color:#d1dfeb;text-align:center;margin-top:6px}
+
+#ownerOutline path,#ownerFill path{vector-effect:non-scaling-stroke}
+#ownerOutline path{stroke-width:1.15px!important;stroke-linejoin:round;stroke-linecap:round}
+#ownerFill path{stroke-width:.78px!important;stroke-linejoin:round;stroke-linecap:round}
+#mapBadges image{pointer-events:none}
+#conquestOverlay{pointer-events:none}
+#conquestOverlay path{stroke:#f0d08b;stroke-width:.035;stroke-linejoin:round}
+#mapBadges{transition:opacity .22s ease}
+@media(prefers-reduced-motion:reduce){#mapBadges{transition:none}}
+.crest .club-logo{z-index:2}
+.campaign{margin-top:6px;font-size:9px;color:#aebdd0;text-align:center;letter-spacing:.6px}
+#mapBadges{transition:opacity .35s ease}#conquestPulse path{stroke-linecap:round;stroke-linejoin:round}.standings{margin-top:8px;border:1px solid #33485e;background:#102238;border-radius:10px;padding:8px 10px}.standings-title{font-size:10px;font-weight:850;color:#edc778;letter-spacing:1.2px;margin-bottom:7px}.ranks{display:grid;grid-template-columns:1fr 1fr;column-gap:10px;row-gap:1px}.rank{display:flex;justify-content:space-between;gap:4px;color:#e5eaf2;font-size:8.7px;padding:1px 0;border-bottom:1px solid #ffffff16}.rank b{font-size:8px;white-space:nowrap;color:#edc778}.rank.out{opacity:.38}.rank.out b{color:#aeb4bb}.save-status{margin-top:8px;color:#86c9b7;font-size:8px;letter-spacing:.6px}.standings-foot{font-size:8px;color:#9aacbd;line-height:1.3;margin-top:6px}.footer{padding-bottom:2px}.mapnote{font-size:8px}
+/* REEL slot-draw animation stays inside the map; no controls are shown to viewers. */ .app.admin .buttons{display:grid}.app.admin .mode button{pointer-events:auto}
+.map{isolation:isolate}.slot-overlay{position:absolute;inset:0;z-index:6;background:rgba(7,23,39,.93);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;padding:20px 12px;text-align:center}
+.slot-overlay[hidden]{display:none!important}.slot-kicker{font-size:11px;font-weight:850;letter-spacing:2px;color:var(--gold)}.slot-reels{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);align-items:center;gap:6px;width:100%}.slot-column{min-width:0;overflow:hidden;background:#152c44;border:1px solid #60778e;border-radius:8px;padding:12px 4px;box-shadow:inset 0 0 0 1px #ffffff0e}.slot-column.spinning{border-color:var(--gold);box-shadow:0 0 0 1px #edc7786a,0 0 16px #edc77824}.slot-role{color:#afc0d1;font-size:9px;letter-spacing:1px;font-weight:700;margin-bottom:9px}.slot-name{color:white;font-weight:900;font-size:clamp(12px,3vw,18px);letter-spacing:.4px;min-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.slot-name.flicker{animation:slotHop .11s linear infinite alternate}.slot-spark{color:var(--gold);font-size:16px;font-weight:950}.slot-hint{color:#abc0d2;font-size:9px;letter-spacing:1px}.slot-overlay.settled .slot-column{border-color:var(--gold);background:#1d3852}.slot-overlay.settled .slot-name{color:var(--gold)}@keyframes slotHop{from{transform:translateY(-3px);filter:blur(1px)}to{transform:translateY(3px);filter:blur(0)}}
+@media(max-height:760px){.slot-overlay{gap:7px;padding:10px}.slot-column{padding:8px 4px}.slot-kicker{font-size:10px}.slot-role{margin-bottom:5px}.slot-name{font-size:12px}}
+
+/* FWC 2.7 — spectator-first, nine standings always inside a single vertical frame. */
+html,body{overflow:hidden}
+.app{width:100%;max-width:430px;height:100svh;min-height:0;max-height:100svh;overflow:hidden;padding:clamp(38px,6.5svh,65px) 12px clamp(68px,11svh,112px);gap:0;display:flex;flex-direction:column;justify-content:flex-start}
+.top{flex:0 0 auto;margin:0 0 7px;min-height:18px}
+.brand{font-size:clamp(9px,2.9vw,12px);letter-spacing:.85px}
+.tag{font-size:8px;padding:3px 5px}
+.map{height:auto;min-height:0;flex:1 1 auto;max-height:none;border-radius:9px}
+.mapnote,.mapclubs,.footer,.standings-foot,.save-status,.mode,.campaign,.buttons,.sub{display:none!important}
+.maplabel{top:8px;left:9px;font-size:9px;max-width:90%;letter-spacing:.6px;padding:5px 8px}
+.info{padding:8px 1px 3px;flex:0 0 auto}.info .left{font-size:10px}.info .right{font-size:10px}
+.teams{flex:0 0 auto;margin-top:2px;grid-template-columns:1fr 24px 1fr}
+.role{font-size:9px;margin:0 0 4px;letter-spacing:1px}
+.crest{width:clamp(32px,4.3svh,43px);height:clamp(32px,4.3svh,43px);margin-bottom:3px}
+.name{font-size:clamp(11px,3.2vw,14px);letter-spacing:.35px}
+.vs{padding-top:38px;font-size:11px}
+.dice{margin:6px 0 4px;gap:5px}.die{width:clamp(27px,4.2svh,38px);height:clamp(27px,4.2svh,38px);font-size:19px}
+.score{font-size:clamp(25px,3.6svh,32px)}
+.status{flex:0 0 auto;margin-top:7px;padding:7px 2px 4px;min-height:25px;max-height:45px}
+.headline{font-size:clamp(11px,3vw,14px);line-height:1.2;letter-spacing:.45px}
+.progress{flex:0 0 3px;margin:4px 0 7px}
+.standings{flex:0 0 auto;margin-top:0;border:1px solid #33485e;border-radius:9px;padding:7px 10px 9px}
+.standings-title{font-size:10px;letter-spacing:1px;margin-bottom:5px}
+.ranks{column-gap:10px;row-gap:2px}
+.rank{font-size:clamp(9px,2.5vw,11px);min-width:0;padding:3px 0;line-height:1.12}
+.rank span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank b{font-size:9px}
+.rank.out{opacity:.43}
+.slot-overlay{gap:9px}
+.app.admin{height:auto;min-height:100svh;max-height:none;overflow:visible;padding-bottom:24px}.app.admin .buttons,.app.admin .mode,.app.admin .campaign,.app.admin .save-status,.app.admin .standings-foot,.app.admin .footer{display:flex!important}.app.admin .buttons{display:grid!important}.app.admin .footer{display:block!important}/* Ultra-compact screens: prioritize map, battle and complete nine-club leaderboard. */
+@media(max-height:760px){.app{padding-top:clamp(34px,5.5svh,50px);padding-bottom:clamp(52px,9svh,82px)}.top{margin-bottom:5px}.map{min-height:0;height:auto}.info{padding:5px 1px 2px}.role{margin-bottom:3px}.dice{margin:5px 0 3px}.status{margin-top:5px;padding:5px 1px 2px;min-height:21px}.rank{padding:2px 0}.standings{padding:6px 9px 7px}.progress{margin:3px 0 5px}}
+@media(max-height:640px){.app{padding-top:25px;padding-bottom:45px}.crest{width:31px;height:31px}.die{height:25px;width:25px}.score{font-size:24px}.rank{font-size:9px;padding:1px 0}.standings-title{margin-bottom:3px}}
+@media(max-height:800px){.rank{padding:1px 0!important;font-size:9px!important}.standings{padding:5px 8px 6px!important}.standings-title{margin-bottom:3px!important}.ranks{row-gap:1px!important}}
+/* Twenty teams: preserve a two-column ranking within the safe Reel area. */
+.rank{font-size:clamp(8px,2.15vw,10px);padding:2px 0;line-height:1.06}
+.rank b{font-size:8px}.ranks{row-gap:1px;column-gap:8px}.standings{padding:6px 9px 7px}.standings-title{font-size:9px;margin-bottom:4px}
+@media(max-height:820px){.rank{font-size:8px!important;padding:1px 0!important}.score{font-size:27px}.map{min-height:0}}
+
+/* v2.12: compact 25-club standings on one 9:16 reel frame */
+.ranks{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:7px;row-gap:1px}
+.rank{min-width:0;font-size:8px;gap:2px;padding:2px 0;align-items:center}
+.rank span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank b{font-size:8px;flex-shrink:0}
+@media(max-width:380px){.rank{font-size:7px}.rank b{font-size:7px}}
+.standings{min-height:70px}.ranks{grid-template-columns:1fr 1fr}.rank{font-size:clamp(9px,2.35vw,11px);padding:2px 0}.name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.maplabel{max-width:92%}</style></head><body><main class="app"><div class="top"><span class="brand">⚽ FOOTBALL WORLD CONQUEST</span><span class="tag">v2.13 · ITALY TEST</span></div><div class="map"><svg id="geo" viewBox="452 96 58 76" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Real borders of 110 Italian provinces, with nine test clubs assigned in Emilia-Romagna"><rect x="-100" y="-100" width="1200" height="700" fill="#183c55"/><g id="atlasLayer"><path class="land neighbor" d="M446.2,133.1 L445.2,131.9 L446.5,130.1 L450.0,130.1 L450.0,134.3 L446.2,133.1Z"/><path class="land neighbor" d="M446.5,130.0 L447.0,123.7 L442.6,118.7 L440.0,117.9 L440.0,117.4 L450.0,117.4 L450.0,130.1 L446.5,130.1 L446.5,130.0Z"/><path class="land neighbor" d="M441.8,114.5 L446.0,115.3 L445.2,111.7 L447.5,113.1 L450.0,112.1 L450.0,117.4 L440.0,117.4 L440.0,114.9 L441.8,114.5Z"/><path class="land neighbor" d="M457.8,133.0 L457.5,134.9 L454.6,135.3 L451.8,133.9 L450.8,134.6 L450.0,134.3 L450.0,130.1 L460.0,130.1 L460.0,132.4 L457.8,133.0Z"/><path class="land neighbor" d="M450.0,130.1 L450.0,117.4 L460.0,117.4 L460.0,130.1 L450.0,130.1Z"/><path class="land neighbor" d="M453.3,110.6 L454.1,108.0 L456.3,107.4 L456.6,108.5 L457.8,108.6 L460.0,110.6 L460.0,117.4 L450.0,117.4 L450.0,112.1 L453.3,110.6Z"/><path class="land neighbor" d="M468.6,131.0 L466.3,132.8 L461.4,132.0 L460.0,132.4 L460.0,130.1 L468.8,130.1 L468.6,131.0Z"/><path class="land neighbor" d="M468.7,118.6 L466.8,118.8 L465.1,121.4 L465.1,122.9 L466.3,122.4 L467.1,123.8 L467.7,125.8 L466.9,126.8 L467.5,129.3 L468.9,129.7 L468.8,130.1 L460.0,130.1 L460.0,117.4 L469.1,117.4 L468.7,118.6Z"/><path class="land neighbor" d="M470.0,114.1 L470.0,114.8 L469.1,117.4 L460.0,117.4 L460.0,110.6 L460.7,111.3 L470.0,114.1Z"/><path class="land neighbor" d="M473.5,133.2 L473.9,135.9 L473.1,138.4 L471.9,137.7 L471.4,135.6 L473.5,133.2Z"/><path class="land neighbor" d="M472.6,167.8 L470.0,164.9 L470.0,160.1 L470.4,159.7 L470.8,155.4 L476.5,155.4 L476.5,155.6 L477.3,156.4 L477.0,159.1 L475.4,160.7 L475.8,162.5 L477.1,162.5 L478.7,164.5 L478.6,167.0 L477.2,168.1 L472.7,168.1 L472.6,167.8Z"/><path class="land neighbor" d="M471.1,152.4 L473.8,151.2 L475.5,151.5 L475.5,153.2 L477.6,152.0 L476.5,154.1 L476.5,155.4 L470.8,155.4 L471.1,152.4Z"/><path class="land neighbor" d="M477.6,121.3 L473.7,120.2 L474.7,118.7 L476.0,119.6 L476.4,118.8 L480.0,118.4 L480.0,120.3 L477.6,121.3Z"/><path class="land neighbor" d="M486.6,122.4 L480.9,121.3 L480.4,120.2 L480.0,120.3 L480.0,118.4 L480.4,118.3 L482.3,119.1 L482.3,117.4 L490.0,117.4 L490.0,121.6 L486.6,122.4Z"/><path class="land neighbor" d="M482.2,116.5 L484.0,114.6 L485.8,115.6 L488.1,114.1 L490.0,114.6 L490.0,117.4 L482.3,117.4 L482.2,116.5Z"/><path class="land neighbor" d="M492.3,118.3 L490.9,118.3 L491.3,119.0 L490.0,121.6 L490.0,121.6 L490.0,117.4 L492.3,117.4 L492.3,118.3Z"/><path class="land neighbor" d="M492.3,117.4 L490.0,117.4 L490.0,114.6 L491.2,114.9 L492.4,115.5 L492.3,117.4Z"/><path class="land neighbor" d="M470.0,114.8 L470.0,117.4 L469.1,117.4 L470.0,114.8Z M466.6,113.6 L465.5,112.7 L465.1,110.6 L465.0,105.2 L466.5,105.2 L466.7,104.7 L470.0,104.7 L470.0,114.1 L466.6,113.6Z"/><path class="land neighbor" d="M467.1,104.0 L467.8,99.3 L470.0,99.8 L470.0,104.7 L466.7,104.7 L467.1,104.0Z"/><path class="land neighbor" d="M476.4,118.8 L476.0,119.6 L471.3,117.9 L470.0,118.2 L470.0,117.4 L480.0,117.4 L480.0,118.4 L476.4,118.8Z"/><path class="land neighbor" d="M470.2,114.2 L470.0,114.1 L470.0,104.7 L480.0,104.7 L480.0,117.4 L470.0,117.4 L470.0,114.8 L470.2,114.2Z"/><path class="land neighbor" d="M470.3,99.8 L472.0,98.3 L471.3,95.3 L474.8,95.2 L474.8,96.5 L477.4,97.2 L477.3,98.3 L480.0,97.3 L480.0,104.7 L470.0,104.7 L470.0,99.8 L470.3,99.8Z"/><path class="land neighbor" d="M482.3,119.1 L480.4,118.3 L480.0,118.4 L480.0,117.4 L482.3,117.4 L482.3,119.1Z"/><path class="land neighbor" d="M487.5,107.5 L485.8,107.5 L480.6,110.2 L481.3,112.5 L484.0,114.6 L482.2,116.5 L482.3,117.4 L480.0,117.4 L480.0,104.7 L486.4,104.7 L487.5,107.5Z"/><path class="land neighbor" d="M485.9,100.7 L485.2,101.6 L486.4,104.7 L480.0,104.7 L480.0,97.3 L481.3,96.9 L485.3,99.1 L485.9,100.7Z"/><path class="land neighbor" d="M498.5,142.0 L498.9,137.3 L498.3,135.8 L499.3,134.2 L500.0,134.7 L500.0,142.8 L499.3,142.8 L498.5,142.0Z"/><path class="land neighbor" d="M501.0,142.8 L500.0,142.8 L500.0,134.7 L501.3,135.7 L501.5,139.3 L502.6,140.1 L501.0,142.8Z"/><path class="land neighbor" d="M489.9,126.2 L489.4,127.5 L490.0,128.2 L490.0,130.1 L488.6,130.1 L487.9,129.3 L488.4,129.1 L487.3,126.7 L485.6,126.2 L484.9,127.5 L484.1,126.5 L484.3,125.3 L488.3,125.5 L489.4,123.0 L490.0,122.7 L490.0,126.2 L489.9,126.2Z"/><path class="land neighbor" d="M494.2,133.2 L496.4,134.4 L496.1,134.9 L490.0,131.6 L490.0,131.6 L490.0,130.1 L491.6,130.1 L494.2,133.2Z"/><path class="land neighbor" d="M494.1,123.9 L497.1,124.0 L498.5,126.1 L497.5,127.3 L490.0,126.2 L490.0,122.7 L491.4,122.1 L494.1,123.9Z M491.6,130.1 L490.0,130.1 L490.0,128.2 L491.6,130.1Z"/><path class="land neighbor" d="M468.2,124.4 L466.3,122.4 L465.1,122.9 L465.1,121.4 L466.8,118.8 L470.0,118.2 L470.0,123.6 L468.2,124.4Z"/><path class="land neighbor" d="M473.7,120.2 L476.1,120.9 L475.9,122.2 L473.0,122.3 L472.4,123.6 L470.8,123.2 L470.0,123.6 L470.0,118.2 L471.3,117.9 L474.0,118.9 L473.7,120.2Z"/><path class="land italy" d="M468.9,129.7 L467.5,129.3 L466.9,126.8 L467.7,125.8 L467.1,123.8 L468.2,124.4 L470.0,123.6 L470.0,130.1 L468.8,130.1 L468.9,129.7Z"/><path class="land italy" d="M474.2,145.4 L472.0,146.2 L471.1,145.4 L470.8,142.8 L474.4,142.8 L474.2,145.4Z"/><path class="land italy" d="M478.0,135.3 L476.3,133.5 L475.5,130.3 L474.9,130.1 L480.0,130.1 L480.0,136.7 L478.0,135.3Z M470.0,130.2 L470.0,130.1 L470.2,130.1 L470.0,130.2Z M473.0,138.9 L474.5,141.2 L474.4,142.8 L470.8,142.8 L470.4,139.7 L473.0,138.9Z"/><path class="land italy" d="M477.6,121.3 L480.0,120.3 L480.0,130.1 L474.9,130.1 L472.2,128.9 L470.2,130.1 L470.0,130.1 L470.0,123.6 L470.8,123.2 L472.4,123.6 L473.0,122.3 L475.9,122.2 L476.1,120.9 L477.6,121.3Z"/><path class="land italy" d="M489.2,149.4 L490.0,146.9 L490.0,148.7 L489.2,149.4Z M488.6,142.8 L490.0,142.8 L490.0,145.5 L488.6,142.8Z M488.8,148.4 L487.7,153.5 L481.1,150.3 L481.4,148.7 L488.8,148.4Z"/><path class="land italy" d="M483.8,131.4 L485.1,134.0 L487.9,136.6 L489.8,136.5 L490.0,136.7 L490.0,137.6 L489.7,137.9 L490.0,138.0 L490.0,142.8 L488.6,142.8 L488.5,142.6 L480.0,136.7 L480.0,130.1 L481.9,130.1 L483.8,131.4Z"/><path class="land italy" d="M480.4,120.2 L480.9,121.3 L484.5,122.1 L484.8,125.0 L482.9,124.6 L480.8,125.7 L480.7,128.2 L481.5,129.8 L481.9,130.1 L480.0,130.1 L480.0,120.3 L480.4,120.2Z"/><path class="land italy" d="M495.7,143.4 L495.2,142.8 L495.8,142.8 L495.7,143.4Z M491.1,143.4 L492.9,144.6 L492.6,146.2 L490.0,148.7 L490.0,146.9 L490.3,146.0 L490.0,145.5 L490.0,142.8 L491.5,142.8 L491.1,143.4Z"/><path class="land italy" d="M490.4,137.2 L490.0,137.6 L490.0,136.7 L490.4,137.2Z M495.9,141.6 L495.8,142.8 L495.2,142.8 L494.3,141.9 L492.2,141.4 L491.5,142.8 L490.0,142.8 L490.0,138.0 L495.9,141.6Z"/><path class="land neighbor" d="M490.0,121.1 L490.0,122.7 L489.4,123.0 L488.3,125.5 L484.3,125.3 L484.8,125.0 L484.5,122.1 L490.0,121.1Z"/><path class="land neighbor" d="M490.5,121.0 L491.4,122.1 L490.0,122.7 L490.0,121.1 L490.5,121.0Z"/><path class="land neighbor" d="M499.3,134.2 L498.4,136.8 L496.1,134.9 L496.8,132.6 L498.0,131.6 L500.0,133.0 L500.0,134.5 L499.3,134.2Z"/></g><rect id="localBackdrop" x="452" y="110" width="62" height="42" fill="#48647c" opacity="0"/><g id="realProvinceLayer"></g><g id="ownerOutline"></g><g id="ownerFill"></g><defs><clipPath id="conquestClip" clipPathUnits="userSpaceOnUse"><rect id="conquestClipRect" x="0" y="0" width="0" height="0"/></clipPath></defs><g id="conquestPulse"></g><g id="conquestOverlay" clip-path="url(#conquestClip)"></g><g id="territoryLayer" style="display:none">
+<path id="territoryB" d="M475.7 123.5 L478.0 122.8 L480.0 124.1 L479.7 126.1 L477.1 126.3 L475.5 125.1 Z" fill="#a83e4f" fill-opacity=".78" stroke="#edcf8d" stroke-width=".18"/>
+<path id="territoryA" d="M477.1 126.3 L479.7 126.1 L481.2 127.4 L480.6 129.2 L478.4 129.5 L476.8 128.2 Z" fill="#e5e8ed" fill-opacity=".85" stroke="#edcf8d" stroke-width=".18"/>
+</g><g id="geoMarks" style="display:none"><g id="markB" class="geo-marker" transform="translate(478.1 125.2)"><circle r="2.45" fill="#a9233a"/><text y=".18" fill="white">B</text><image class="map-logo" href="https://commons.wikimedia.org/wiki/Special:FilePath/Bologna_F.C._1909_logo.svg" x="-1.46" y="-2.0" width="2.92" height="4" preserveAspectRatio="xMidYMid meet" opacity="0"/></g><g id="markA" class="geo-marker" transform="translate(479.3 127.2)"><circle r="2.45" fill="#f0f2f4"/><text y=".18" fill="#12243a">C</text></g></g><g id="mapBadges"></g></svg><div id="slotDraw" class="slot-overlay" aria-live="polite" hidden>
+<div class="slot-kicker">RANDOM MATCHUP DRAW</div>
+<div class="slot-reels"><div class="slot-column"><div class="slot-role">ATTACKER</div><div id="slotAttacker" class="slot-name">—</div></div><div class="slot-spark">VS</div><div class="slot-column"><div class="slot-role">DEFENDER</div><div id="slotDefender" class="slot-name">—</div></div></div>
+<div id="slotHint" class="slot-hint">DRAWING ONLY ADJACENT CLUBS</div>
+</div><div class="mapclubs"><span id="labelB">● BOLOGNA</span><span id="labelA">● RAVENNA</span></div><div class="maplabel" id="mapLabel">ITALY · OVERVIEW</div><div class="mapnote">LOADING PROVINCES · TEST</div></div><div class="info"><span class="left">WINNER TAKES ALL · TEST</span><span class="right" id="clock">00 / 15 SEC</span></div><section class="teams"><div class="team"><div class="role">ATTACKER</div><div class="crest ces"><span class="club-logo-fallback">R</span></div><div class="name">RAVENNA</div><div class="dice" id="diceA"><div class="die">·</div><div class="die">·</div><div class="die">·</div></div><div class="score" id="scoreA">0</div></div><div class="vs">VS</div><div class="team"><div class="role">DEFENDER</div><div class="crest bol"><span class="club-logo-fallback">B</span><img class="club-logo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bologna_F.C._1909_logo.svg" alt="Bologna FC logo" onload="this.previousElementSibling.style.display='none'" onerror="this.style.display='none'" referrerpolicy="no-referrer"></div><div class="name">BOLOGNA</div><div class="dice" id="diceB"><div class="die">·</div><div class="die">·</div><div class="die">·</div></div><div class="score" id="scoreB">0</div></div></section><div class="status"><div class="headline" id="headline">READY FOR BATTLE</div><div class="sub" id="sub">6 ALTERNATING ROLLS · 15 SEC / ROUND</div></div><div class="progress"><div class="bar" id="bar"></div></div><div class="buttons"><button class="primary" id="start">▶ START BATTLE</button><button class="secondary" id="reset">↻ RESET</button></div><div class="mode"><span id="modeInfo">AUTO REEL · HANDS-FREE</span><button id="mode" type="button">MATCHUPS DRAWN AT RANDOM</button></div><div class="campaign" id="campaign">ITALY · 110 TERRITORIES · 11 ACTIVE CLUBS</div><section class="standings"><div class="standings-title">LEADERBOARD</div><div id="rankings" class="ranks"></div><div id="savedStatus" class="save-status">LOCAL SAVE</div><div class="standings-foot">9 test territories · Other provinces remain neutral · ISTAT CC BY 4.0</div></section><div class="footer">ITALY TEST · 110 PROVINCES · 25 CLUBS<br>ISTAT / geojson-italy (CC BY 4.0) · Club marks belong to their owners</div></main><script>(()=>{'use strict';
+const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
+const URL='https://raw.githubusercontent.com/guglielmo/geojson-italy/main/geojson/limits_IT_provinces.geojson';
+const BOLOGNA_LOGO='https://commons.wikimedia.org/wiki/Special:FilePath/Bologna_F.C._1909_logo.svg';
+const MODENA_LOGO='https://commons.wikimedia.org/wiki/Special:FilePath/Modena_FC_2018_(logo).svg';
+const PARMA_LOGO='https://commons.wikimedia.org/wiki/Special:FilePath/Logo_Parma_Calcio_1913_(adozione_2016).svg';
+const SPAL_LOGO='https://commons.wikimedia.org/wiki/Special:FilePath/SPAL_Ferrara.svg';
+const MANTOVA_LOGO='https://commons.wikimedia.org/wiki/Special:FilePath/Logo_Mantova_1911.svg';
+const ATALANTA_LOGO='https://commons.wikimedia.org/wiki/Special:FilePath/Atalanta_BC.png';
+const HELLAS_LOGO='https://commons.wikimedia.org/wiki/Special:FilePath/Hellas_verona_2020-2023.png';
+const clubs={
+ P:{name:'PIACENZA',initial:'P',color:'#b74656',code:'33'},
+ A:{name:'PARMA',initial:'P',color:'#eddbac',code:'34',logo:PARMA_LOGO},
+ G:{name:'REGGIANA',initial:'R',color:'#ae4d5b',code:'35'},
+ M:{name:'MODENA',initial:'M',color:'#e3b43b',code:'36',logo:MODENA_LOGO},
+ B:{name:'BOLOGNA',initial:'B',color:'#a83e4f',code:'37',logo:BOLOGNA_LOGO},
+ F:{name:'SPAL',initial:'S',color:'#89b9dc',code:'38',logo:SPAL_LOGO},
+ R:{name:'RAVENNA',initial:'R',color:'#d5ac39',code:'39'},
+ C:{name:'CESENA',initial:'C',color:'#e7e9ed',code:'40'},
+ I:{name:'RIMINI',initial:'R',color:'#c5445c',code:'99'},
+ V:{name:'MANTOVA',initial:'M',color:'#bf323e',code:'20',logo:MANTOVA_LOGO},
+ U:{name:'CREMONESE',initial:'C',color:'#9d9da8',code:'19'},
+ H:{name:'HELLAS VERONA',initial:'H',color:'#e6bf39',code:'23',logo:HELLAS_LOGO},
+ N:{name:'UNION BRESCIA',initial:'U',color:'#dce8f5',code:'17'},
+ T:{name:'ATALANTA',initial:'A',color:'#2173a3',code:'16',logo:ATALANTA_LOGO},
+ W:{name:'L.R. VICENZA',initial:'V',color:'#b23b45',code:'24'},
+ D:{name:'CALCIO PADOVA',initial:'P',color:'#e7edf3',code:'28'},
+ O:{name:'AC MONZA',initial:'M',color:'#d93f4e',code:'108'},
+ Q:{name:'COMO 1907',initial:'C',color:'#2573af',code:'13'},
+ X:{name:'AC MILAN',initial:'M',color:'#a22b3e',code:'15'},
+ L:{name:'CALCIO LECCO 1912',initial:'L',color:'#4f9ac5',code:'97'},
+ J:{name:'INTER',initial:'I',color:'#2164a2',code:'15'},
+ Y:{name:'JUVENTUS',initial:'J',color:'#eeeeee',code:'1'},
+ Z:{name:'TORINO',initial:'T',color:'#893349',code:'1'},
+ K:{name:'AS ROMA',initial:'R',color:'#b34439',code:'58'},
+ E:{name:'LAZIO',initial:'L',color:'#c3dff2',code:'58'}
+};
+const NATIONAL_CANDIDATES={"alessandria":"ALESSANDRIA","asti":"ASTI","biella":"BIELLESE","cuneo":"CUNEO","novara":"NOVARA","verbano-cusio-ossola":"VERBANIA","vercelli":"PRO VERCELLI","genova":"GENOA","imperia":"IMPERIA","la spezia":"SPEZIA","savona":"SAVONA","varese":"VARESE","sondrio":"SONDRIO","pavia":"PAVIA","lodi":"FANFULLA","venezia":"VENEZIA","treviso":"TREVISO","rovigo":"ROVIGO","belluno":"DOLOMITI BELLUNESI","bolzano":"SÜDTIROL","trento":"TRENTO","udine":"UDINESE","trieste":"TRIESTINA","pordenone":"PORDENONE","gorizia":"GORIZIA","firenze":"FIORENTINA","prato":"PRATO","pistoia":"PISTOIESE","lucca":"LUCCHESE","massa-carrara":"CARRARESE","pisa":"PISA","livorno":"LIVORNO","grosseto":"GROSSETO","siena":"SIENA","arezzo":"AREZZO","perugia":"PERUGIA","terni":"TERNANA","pesaro e urbino":"VIS PESARO","ancona":"ANCONA","macerata":"MACERATESE","fermo":"FERMANA","ascoli piceno":"ASCOLI","frosinone":"FROSINONE","latina":"LATINA","viterbo":"VITERBESE","rieti":"RIETI","l'aquila":"L’AQUILA","pescara":"PESCARA","teramo":"TERAMO","chieti":"CHIETI","campobasso":"CAMPOBASSO","isernia":"ISERNIA","napoli":"NAPOLI","salerno":"SALERNITANA","avellino":"AVELLINO","benevento":"BENEVENTO","caserta":"CASERTANA","bari":"BARI","foggia":"FOGGIA","taranto":"TARANTO","lecce":"LECCE","brindisi":"BRINDISI","barletta-andria-trani":"FIDELIS ANDRIA","potenza":"POTENZA","matera":"MATERA","catanzaro":"CATANZARO","cosenza":"COSENZA","crotone":"CROTONE","reggio calabria":"REGGINA","vibo valentia":"VIBONESE","palermo":"PALERMO","catania":"CATANIA","messina":"MESSINA","trapani":"TRAPANI","agrigento":"AKRAGAS","ragusa":"RAGUSA","siracusa":"SIRACUSA","enna":"ENNA","caltanissetta":"NISSA","sassari":"TORRES","cagliari":"CAGLIARI","oristano":"ORISTANO","nuoro":"NUORESE","gallura nord-est sardegna":"OLBIA","ogliastra":"LANUSEI","medio campidano":"VILLACIDRESE","sulcis iglesiente":"IGLESIAS"};
+const nationalColorPalette=['#b44d5b','#d3b052','#477ca5','#93a7bd','#8b5a8c','#5f9a83','#b17a45','#6697b8','#c16e70','#bcc3cc'];
+function normalizedProvince(n){return String(n||'').trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’`]/g,"'").replace(/\s+/g,' ')}
+function registerProvinceSlot(code,pn){
+ const key='S'+code;
+ if(clubs[key])return key;
+ const suggested=NATIONAL_CANDIDATES[normalizedProvince(pn)];
+ const n=suggested||'TEST SLOT · '+String(pn||'PROVINCE').toUpperCase();
+ const k=parseInt(code,10)||0;
+ clubs[key]={name:n,initial:suggested?n.charAt(0):'?',color:nationalColorPalette[k%nationalColorPalette.length],code,provisional:true};
+ return key;
+}
+const STORAGE_KEY='FWC_ITALY_NATIONAL_V213_TEST'; // conserva la compatibilità con i salvataggi v2.1
+for(const [id,club] of Object.entries(clubs))if(club.logo){const probe=new Image();probe.onload=()=>{verifiedLogoIds.add(id);if(provincesReady)drawBadges()};probe.src=club.logo;}
+let savedStatus='';
+function saveProgress(){try{const state={v:1,owners:Object.fromEntries(provinces.filter(p=>p.owner!==null).map(p=>[p.code,p.owner])),battleIndex,champion,t:Date.now()};localStorage.setItem(STORAGE_KEY,JSON.stringify(state));savedStatus='SAVED ON THIS DEVICE'}catch(e){savedStatus='SAVE UNAVAILABLE'}updateStandings()}
+function restoreProgress(){try{const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return false;const state=JSON.parse(raw);if(state.v!==1||!state.owners||!Object.keys(state.owners).every(k=>provinces.some(p=>p.code===k)))return false;for(const p of provinces){if(!Object.prototype.hasOwnProperty.call(state.owners,p.code))continue;const id=state.owners[p.code];if(id!==null&&(!id||!clubs[id]))return false}
+for(const p of provinces)if(Object.prototype.hasOwnProperty.call(state.owners,p.code))p.owner=state.owners[p.code];battleIndex=Number.isInteger(state.battleIndex)&&state.battleIndex>=0?state.battleIndex:0;champion=clubs[state.champion]?state.champion:'B';savedStatus='SESSION RESTORED';return true}catch(e){return false}}
+function updateStandings(){
+ const stats=Object.entries(clubs).map(([id,c])=>({id,n:c.name,territories:provinces.filter(p=>p.owner===id).length})).sort((a,b)=>b.territories-a.territories||a.n.localeCompare(b.n));
+ const rows=$('rankings');if(!rows)return;rows.replaceChildren();
+ const leaders=stats.filter(x=>x.territories>0).slice(0,5);
+ const featured=pair?[pair.attacker,pair.defender]:[];
+ const desired=ADMIN_MODE?new Set(stats.map(x=>x.id)):new Set([...leaders.map(x=>x.id),...featured]);
+ for(const [i,x] of stats.entries()){
+  if(!desired.has(x.id))continue;
+  const li=document.createElement('div');li.className='rank'+(x.territories?'':' out');
+  const left=document.createElement('span');left.textContent=(i+1)+'. '+x.n;
+  const right=document.createElement('b');right.textContent=x.territories?String(x.territories):'OUT';li.append(left,right);rows.appendChild(li);
+ }
+ const active=stats.filter(x=>x.territories>0).length;
+ document.querySelector('.standings-title').textContent='LEADERBOARD · '+active+' ACTIVE';
+ $('savedStatus').textContent=(savedStatus||'LOCAL SAVE')+' · '+battleIndex+' BATTLES';
+}
+
+const BATTLE_DURATION=15000;
+const diceFaces=['','⚀','⚁','⚂','⚃','⚄','⚅'];
+let provinces=[],borders=new Map(),ownership={},provincesReady=false,playing=false,finished=false;
+let champion='B',pair=null,mode=0,battleIndex=0,roundN=0,winner=null;let conquestFrame=0; const REEL_AUTOPLAY=true, DRAW_SPIN_STEPS=16, REEL_BATTLES=5; const ADMIN_MODE=new URLSearchParams(location.search).get('admin')==='1'; let drawAnimating=false,reelCount=0;
+let current=[452,96,58,76],viewFrame=0,tickFrame=0,taskTimers=[],battleStart=0;
+let pendingInfo='',badgeImageReady=false;const verifiedLogoIds=new Set();
+const overview=[452,96,58,76],svg=$('geo');
+const wait=(fn,t)=>{const id=setTimeout(fn,t);taskTimers.push(id)};
+const name=id=>clubs[id].name;
+const modeLabel=()=>REEL_AUTOPLAY?'MATCHUPS DRAWN AT RANDOM':['RANDOM DICE','TEST: ATTACKER WINS','TEST: DEFENDER WINS','TEST: DRAW'][mode];
+function syncClock(ms){$('clock').textContent=String(Math.floor(Math.min(BATTLE_DURATION,ms)/1000)).padStart(2,'0')+' / 15 SEC';$('bar').style.width=(Math.min(BATTLE_DURATION,ms)/BATTLE_DURATION*100)+'%'}
+function cancel(){taskTimers.forEach(clearTimeout);taskTimers=[];cancelAnimationFrame(viewFrame);cancelAnimationFrame(tickFrame);cancelAnimationFrame(conquestFrame);clearConquest();playing=false}
+function llX(lon){return 478.1+(lon-11.3426)*2.65}function llY(lat){return 125.2-(lat-44.4949)*3.15}
+function provinceName(p){return String(p.prov_name||p.provincia||p.name||p.prov_name_en||'').toLowerCase()}
+function provinceCode(p){return String(p.prov_istat_code_num||p.prov_istat_code||p.prov_istat_code_num||p.prov_code||p.prov_istat_code||p.prov_istat_code_num||'').replace(/^0+/,'')}
+function rings(g){const polygons=g.type==='Polygon'?[g.coordinates]:g.type==='MultiPolygon'?g.coordinates:[];return polygons.flatMap(p=>p)}
+function coordsToPath(g){return rings(g).map(r=>r.map((pt,i)=>(i?'L':'M')+llX(pt[0]).toFixed(3)+' '+llY(pt[1]).toFixed(3)).join(' ')+'Z').join(' ')}
+function segmentSet(geometry){const arr=new Set();const snap=xy=>`${Math.round(xy[0]*10000)},${Math.round(xy[1]*10000)}`;for(const r of rings(geometry))for(let j=1;j<r.length;j++){const a=snap(r[j-1]),b=snap(r[j]);if(a!==b)arr.add(a<b?a+'|'+b:b+'|'+a)}return arr}
+function adjacent(g1,g2){const a=segmentSet(g1);for(const e of segmentSet(g2))if(a.has(e))return true;return false}
+function getBounds(list){const b=list.map(p=>p.path.getBBox());return {x:Math.min(...b.map(v=>v.x)),y:Math.min(...b.map(v=>v.y)),maxX:Math.max(...b.map(v=>v.x+v.width)),maxY:Math.max(...b.map(v=>v.y+v.height))}}
+function bboxView(bounds,padX,padY){return [bounds.x-padX,bounds.y-padY,bounds.maxX-bounds.x+2*padX,bounds.maxY-bounds.y+2*padY]}
+let localFocus=[471,119,19,16],regionFocus=[466,115,31,25];
+function setView(v){current=v.slice();svg.setAttribute('viewBox',v.join(' '));const detail=Math.max(0,Math.min(1,(v[2]-27)/(-10)));$('atlasLayer').setAttribute('opacity',String(1-detail*.97));$('localBackdrop').setAttribute('opacity',String(detail*.95));drawBadges()}
+function easeTo(target,duration){const from=current.slice(),now=performance.now();cancelAnimationFrame(viewFrame);function step(t){const x=Math.min(1,(t-now)/duration),q=x*x*(3-2*x);setView(from.map((v,i)=>v+(target[i]-v)*q));if(x<1)viewFrame=requestAnimationFrame(step)}viewFrame=requestAnimationFrame(step)}
+function selectedOwned(){return provinces.filter(p=>p.owner&&clubs[p.owner])}
+function findNeighbors(one,two){return provinces.some(a=>a.owner===one&&provinces.some(b=>b.owner===two&&borders.get(a.code)?.has(b.code)))}
+function components(id){const owned=provinces.filter(p=>p.owner===id),used=new Set(),out=[];for(const p of owned){if(used.has(p.code))continue;const stack=[p],chunk=[];used.add(p.code);while(stack.length){const e=stack.pop();chunk.push(e);for(const z of owned)if(!used.has(z.code)&&borders.get(e.code)?.has(z.code)){used.add(z.code);stack.push(z)}}out.push(chunk)}return out}
+const badgePositionCache=new Map();
+function pointInRing(pt,ring){let inside=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++){const a=ring[i],b=ring[j];if((a[1]>pt[1])!==(b[1]>pt[1])&&pt[0]<(b[0]-a[0])*(pt[1]-a[1])/(b[1]-a[1])+a[0])inside=!inside}return inside}
+function projectRing(r){return r.map(p=>[llX(p[0]),llY(p[1])])}
+function badgePos(chunk){
+ const key=chunk.map(p=>p.code).sort().join(',');if(badgePositionCache.has(key))return badgePositionCache.get(key);
+ const bounds=getBounds(chunk),cx=(bounds.x+bounds.maxX)/2,cy=(bounds.y+bounds.maxY)/2;
+ const polygons=[];
+ for(const p of chunk){const parts=p.geo.type==='Polygon'?[p.geo.coordinates]:p.geo.type==='MultiPolygon'?p.geo.coordinates:[];
+  for(const part of parts)polygons.push(part.map(projectRing));}
+ function inside(x,y){return polygons.some(poly=>poly.length&&pointInRing([x,y],poly[0])&&!poly.slice(1).some(h=>pointInRing([x,y],h)))}
+ function clearance(x,y){let closest=Infinity;for(const poly of polygons)for(const ring of poly)for(let i=0;i<ring.length;i++){
+  const a=ring[i],b=ring[(i+1)%ring.length],dx=b[0]-a[0],dy=b[1]-a[1],den=dx*dx+dy*dy;
+  const t=den?Math.max(0,Math.min(1,((x-a[0])*dx+(y-a[1])*dy)/den)):0;
+  const dist=(x-a[0]-dx*t)**2+(y-a[1]-dy*t)**2;if(dist<closest)closest=dist;
+ }return Math.sqrt(closest)}
+ let best=null,bestScore=-Infinity;const w=bounds.maxX-bounds.x,h=bounds.maxY-bounds.y;
+ for(let yi=0;yi<=16;yi++)for(let xi=0;xi<=16;xi++){
+  const x=bounds.x+(xi+.5)*w/17,y=bounds.y+(yi+.5)*h/17;
+  if(!inside(x,y))continue;
+  const score=clearance(x,y)-Math.hypot((x-cx)*.12,(y-cy)*.12);
+  if(score>bestScore){bestScore=score;best=[x,y]}
+ }
+ if(!best){for(const p of chunk){const b=p.path.getBBox();const x=b.x+b.width/2,y=b.y+b.height/2;if(inside(x,y)){best=[x,y];break}}}
+ best=best||[cx,cy];badgePositionCache.set(key,best);return best
+}
+function clearSVG(g){g.replaceChildren()}
+function drawBadges(){const group=$('mapBadges');clearSVG(group);if(!provincesReady)return;const scale=Math.min(1,current[2]/overview[2]);if(current[2]>36)return;for(const id of Object.keys(clubs)){if(pair&&![pair.attacker,pair.defender].includes(id))continue;for(const chunk of components(id)){
+ const [x,y]=badgePos(chunk),g=document.createElementNS(NS,'g');g.setAttribute('transform',`translate(${x} ${y}) scale(${scale})`);const c=document.createElementNS(NS,'circle');c.setAttribute('r','2.42');c.setAttribute('fill',clubs[id].color);c.setAttribute('stroke','#edc778');c.setAttribute('stroke-width','.34');g.appendChild(c);
+ if(clubs[id].logo&&verifiedLogoIds.has(id)){const im=document.createElementNS(NS,'image');im.setAttribute('href',clubs[id].logo);im.setAttribute('x','-1.43');im.setAttribute('y','-1.91');im.setAttribute('width','2.86');im.setAttribute('height','3.82');g.appendChild(im)}else{const t=document.createElementNS(NS,'text');t.textContent=clubs[id].initial;t.setAttribute('fill',id==='R'?'#14243b':'white');t.setAttribute('font-size','2.3');t.setAttribute('font-weight','900');t.setAttribute('text-anchor','middle');t.setAttribute('dominant-baseline','middle');t.setAttribute('y','.12');g.appendChild(t)}group.appendChild(g)
+}}}
+function clearConquest(){cancelAnimationFrame(conquestFrame);$('conquestPulse').replaceChildren();$('conquestOverlay').replaceChildren();$('conquestClipRect').setAttribute('width','0');$('mapBadges').style.opacity='1'}
+function showConquestHighlight(loser){
+ const pulse=$('conquestPulse');pulse.replaceChildren();
+ for(const p of provinces.filter(p=>p.owner===loser)){
+  const path=p.path.cloneNode(false);path.removeAttribute('id');path.setAttribute('fill','none');path.setAttribute('stroke','#edc778');path.setAttribute('stroke-width','.11');path.setAttribute('stroke-linejoin','round');pulse.appendChild(path)
+ }
+ $('mapLabel').textContent=name(loser)+' · TERRITORY UNDER CONQUEST';
+}
+function animateConquestFill(loser,winningClub,duration){
+ $('mapBadges').style.opacity='0.08';
+ const targets=provinces.filter(p=>p.owner===loser);if(!targets.length)return;
+ const layer=$('conquestOverlay');layer.replaceChildren();
+ const b=getBounds(targets),left=b.x-.35,top=b.y-.35,w=b.maxX-b.x+.7,h=b.maxY-b.y+.7;
+ for(const p of targets){const path=p.path.cloneNode(false);path.removeAttribute('id');path.setAttribute('fill',clubs[winningClub].color);path.setAttribute('stroke',clubs[winningClub].color);path.setAttribute('stroke-width','.035');layer.appendChild(path)}
+ const rect=$('conquestClipRect');rect.setAttribute('x',left);rect.setAttribute('y',top);rect.setAttribute('height',h);rect.setAttribute('width',0);
+ const begun=performance.now();const reduce=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+ function frame(t){const f=reduce?1:Math.max(0,Math.min(1,(t-begun)/duration)),smooth=f*f*(3-2*f);rect.setAttribute('width',String(w*smooth));if(f<1)conquestFrame=requestAnimationFrame(frame)}
+ conquestFrame=requestAnimationFrame(frame)
+}
+function render(){const outline=$('ownerOutline'),fill=$('ownerFill');clearSVG(outline);clearSVG(fill);
+ for(const p of provinces){p.path.setAttribute('fill',p.owner?clubs[p.owner].color:'#607c95');p.path.setAttribute('stroke',p.owner?clubs[p.owner].color:'#a9bccb');p.path.setAttribute('stroke-width',p.owner?'.03':'.105')}
+ // Thin gold OUTER contour; overlapping same-owner fills cover common internal borders.
+ for(const p of selectedOwned()){
+ const o=p.path.cloneNode(false);o.removeAttribute('id');o.setAttribute('fill',clubs[p.owner].color);o.setAttribute('stroke','#edc778');o.setAttribute('stroke-width','.18');o.setAttribute('stroke-linejoin','round');outline.appendChild(o)
+ }
+ for(const p of selectedOwned()){
+ const f=p.path.cloneNode(false);f.removeAttribute('id');f.setAttribute('fill',clubs[p.owner].color);f.setAttribute('stroke',clubs[p.owner].color);f.setAttribute('stroke-width','.13');f.setAttribute('stroke-linejoin','round');fill.appendChild(f)
+ }
+ drawBadges()
+}
+function updateFrameLabels(){if(pair){$('labelA').textContent='● '+name(pair.attacker);$('labelB').textContent='● '+name(pair.defender)}else{$('labelA').textContent='● TEST';$('labelB').textContent='● CONQUEST'}}
+function card(selector,id){const e=document.querySelector(selector);e.classList.toggle('bol',id==='B');e.classList.toggle('ces',id!=='B');e.innerHTML='';if(clubs[id].logo){const span=document.createElement('span');span.className='club-logo-fallback';span.textContent=clubs[id].initial;const img=document.createElement('img');img.className='club-logo';img.src=clubs[id].logo;img.alt='Logo '+clubs[id].name;img.referrerPolicy='no-referrer';img.onload=()=>{span.style.display='none';verifiedLogoIds.add(id);drawBadges()};img.onerror=()=>img.style.display='none';e.append(span,img)}else{const span=document.createElement('span');span.textContent=clubs[id].initial;e.appendChild(span)}}
+function updateCards(){if(!pair)return;card('.team:first-child .crest',pair.attacker);card('.team:last-child .crest',pair.defender);document.querySelector('.team:first-child .name').textContent=name(pair.attacker);document.querySelector('.team:last-child .name').textContent=name(pair.defender);updateFrameLabels();$('mode').textContent=modeLabel();const info=$('modeInfo');if(info)info.textContent=REEL_AUTOPLAY?'AUTO REEL · HANDS-FREE':'ITALY TEST · '+Object.keys(clubs).filter(id=>provinces.some(p=>p.owner===id)).length+' ACTIVE CLUBS';$('campaign').textContent='REEL '+Math.min(REEL_BATTLES,reelCount)+'/5 BATTLES · '+Object.keys(clubs).filter(id=>provinces.some(p=>p.owner===id)).length+' CLUBS LEFT';updateStandings()}
+function candidatePairs(){const candidates=[];const seen=new Set();for(const p of provinces){if(!p.owner)continue;for(const otherCode of (borders.get(p.code)||[])){const q=provinces.find(z=>z.code===otherCode);if(!q||!q.owner||p.owner===q.owner)continue;const key=[p.owner,q.owner].sort().join('|');if(seen.has(key))continue;seen.add(key);candidates.push([p.owner,q.owner])}}return candidates}
+function pickPair(){
+ const candidates=candidatePairs();
+ if(!candidates.length)return null;
+ const pick=candidates[Math.floor(Math.random()*candidates.length)];
+ return Math.random()<.5?{attacker:pick[0],defender:pick[1]}:{attacker:pick[1],defender:pick[0]}
+}
+function autoDrawAndStart(){
+ if(!REEL_AUTOPLAY||!provincesReady||playing||drawAnimating||!pair)return;
+ drawAnimating=true;
+ const finalPair={attacker:pair.attacker,defender:pair.defender};
+ const options=candidatePairs().flatMap(([a,b])=>[{attacker:a,defender:b},{attacker:b,defender:a}]);
+ const slot=$('slotDraw'),left=$('slotAttacker'),right=$('slotDefender'),hint=$('slotHint');
+ slot.hidden=false;slot.classList.remove('settled');
+ for(const column of slot.querySelectorAll('.slot-column'))column.classList.add('spinning');
+ left.classList.add('flicker');right.classList.add('flicker');
+ $('headline').textContent='RANDOM MATCHUP DRAW';$('sub').textContent='ADJACENT TEAMS ONLY';
+ $('mapLabel').textContent='ITALY · OVERVIEW';$('clock').textContent='DRAW';$('bar').style.width='0%';
+ setView(overview);document.querySelectorAll('.die').forEach(d=>{d.className='die';d.textContent='·'});
+ $('scoreA').textContent='0';$('scoreB').textContent='0';
+ let step=0;
+ const spin=()=>{
+  if(!drawAnimating)return;
+  const showcase=options.length?options[Math.floor(Math.random()*options.length)]:finalPair;
+  left.textContent=name(showcase.attacker);right.textContent=name(showcase.defender);
+  hint.textContent='ONLY CLUBS WITH A SHARED BORDER';
+  $('bar').style.width=(step/(DRAW_SPIN_STEPS-1))*100+'%';step++;
+  if(step<DRAW_SPIN_STEPS){wait(spin,step<9?80:step<13?150:220)}
+  else {
+   pair=finalPair;updateCards();
+   left.textContent=name(finalPair.attacker);right.textContent=name(finalPair.defender);
+   for(const column of slot.querySelectorAll('.slot-column'))column.classList.remove('spinning');
+   left.classList.remove('flicker');right.classList.remove('flicker');
+   slot.classList.add('settled');hint.textContent='MATCHUP CONFIRMED';
+   $('headline').textContent='MATCHUP DRAWN';
+   $('sub').textContent=name(pair.attacker)+' ATTACKS '+name(pair.defender);
+   $('clock').textContent='00 / 15 SEC';$('bar').style.width='0%';
+   wait(()=>{slot.hidden=true;drawAnimating=false;start()},850);
+  }
+ };
+ spin();
+}
+function prepareBattle(){pair=pickPair();if(!pair){finished=true;$('start').disabled=true;$('headline').textContent='WORLD CONQUEST TEST COMPLETE';$('sub').textContent='NO MORE VERIFIED ADJACENT OPPONENTS';$('campaign').textContent='TEST COMPLETE · NO CLUB BORDERS LEFT';updateStandings();return}
+ finished=false;updateCards();$('start').disabled=false;$('start').textContent=battleIndex?'▶ NEXT BATTLE':'▶ START BATTLE';$('headline').textContent=REEL_AUTOPLAY?'RANDOM DRAW READY':(battleIndex?'NEXT BATTLE READY':'READY FOR BATTLE');$('sub').textContent=REEL_AUTOPLAY?'AUTOMATIC REEL MODE · NO MANUAL INPUT':'ITALY → LOCAL BORDER → BATTLE';setView(overview);$('mapLabel').textContent='ITALY · OVERVIEW';$('bar').style.width='0%';$('clock').textContent='00 / 15 SEC';$('scoreA').textContent='0';$('scoreB').textContent='0';document.querySelectorAll('.die').forEach(d=>{d.className='die';d.textContent='·'})}
+function randomDie(){const bytes=new Uint32Array(1);if(window.crypto?.getRandomValues){const limit=Math.floor(4294967296/6)*6;do{crypto.getRandomValues(bytes)}while(bytes[0]>=limit);return bytes[0]%6+1}return Math.floor(Math.random()*6)+1}
+function rollsForRound(){let A=Array.from({length:3},randomDie),B=Array.from({length:3},randomDie);let a=A.reduce((x,y)=>x+y,0),b=B.reduce((x,y)=>x+y,0);
+ if(mode===3){B=A.slice();b=a}else if(mode===1||mode===2){let guard=0;while(((mode===1&&a<=b)||(mode===2&&a>=b))&&guard++<1000){A=Array.from({length:3},randomDie);B=Array.from({length:3},randomDie);a=A.reduce((x,y)=>x+y,0);b=B.reduce((x,y)=>x+y,0)}}
+ return {A,B,tie:a===b,win:a>b?pair.attacker:pair.defender}
+}
+function roll(side,i,n){const el=$('dice'+side).children[i];el.classList.remove('rolling');el.classList.add('rolled');el.textContent=diceFaces[n];$('score'+side).textContent=Array.from($('dice'+side).children).reduce((a,e)=>a+Math.max(0,diceFaces.indexOf(e.textContent)),0)}
+function tick(){if(!playing)return;syncClock(performance.now()-battleStart);if(performance.now()-battleStart<BATTLE_DURATION)tickFrame=requestAnimationFrame(tick)}
+function round(){clearConquest();roundN++;const rolls=rollsForRound();battleStart=performance.now();tick();$('headline').textContent=roundN>1?'TIE · NEW ROUND':'BATTLE BEGINS';$('sub').textContent='CAMERA: ITALY → BATTLE LOCATION';$('bar').style.width='0%';$('clock').textContent='00 / 15 SEC';$('scoreA').textContent='0';$('scoreB').textContent='0';document.querySelectorAll('.die').forEach(d=>{d.className='die';d.textContent='·'});setView(overview);$('mapLabel').textContent='ITALY · OVERVIEW';
+ const battling=provinces.filter(p=>p.owner===pair.attacker||p.owner===pair.defender);const all=provinces.filter(p=>p.owner);let focus=battling;outer:for(const a of battling.filter(p=>p.owner===pair.attacker))for(const b of battling.filter(p=>p.owner===pair.defender)){if(borders.get(a.code)?.has(b.code)){focus=[a,b];break outer}}const local=bboxView(getBounds(focus),2.7,2.2);const regional=bboxView(getBounds(focus),6.5,5.0);
+ wait(()=>{$('mapLabel').textContent='BATTLE AREA · ZOOM';easeTo(regional,1350)},200);wait(()=>{$('mapLabel').textContent=name(pair.attacker)+' ↔ '+name(pair.defender);easeTo(local,1400)},1450);
+ for(let k=0;k<6;k++){const s=k%2===0?'A':'B',i=Math.floor(k/2),time=3700+k*1320;wait(()=>{const d=$('dice'+s).children[i];d.classList.add('rolling');$('headline').textContent=name(s==='A'?pair.attacker:pair.defender)+' · DIE '+(i+1);$('sub').textContent='ONE DIE AT A TIME'},time);wait(()=>roll(s,i,rolls[s][i]),time+300)}
+ if(rolls.tie){wait(()=>{$('headline').textContent='DRAW · NO ELIMINATION';$('sub').textContent='ALL SIX ROLLS REPEAT'},12350);wait(()=>{cancelAnimationFrame(tickFrame);mode=0;updateCards();round()},BATTLE_DURATION);return}
+ const loser=rolls.win===pair.attacker?pair.defender:pair.attacker;
+ wait(()=>{$('headline').textContent=name(rolls.win)+' WINS';$('sub').textContent='CONQUEST IN PROGRESS · '+name(loser);showConquestHighlight(loser)},12350);
+ wait(()=>{animateConquestFill(loser,rolls.win,1600)},12750);
+ wait(()=>{for(const p of provinces)if(p.owner===loser)p.owner=rolls.win;champion=rolls.win;render();clearConquest();$('labelA').textContent='● '+name(rolls.win);$('labelB').textContent='● '+name(rolls.win);$('mapLabel').textContent=name(rolls.win)+' · TOTAL CONQUEST'},14600);
+ wait(()=>{playing=false;cancelAnimationFrame(tickFrame);syncClock(BATTLE_DURATION);battleIndex++;reelCount++;$('headline').textContent=name(rolls.win)+' WINS · TOTAL CONQUEST';$('sub').textContent=name(loser)+' ELIMINATED · ALL TERRITORIES TRANSFERRED';$('mode').disabled=false;$('start').disabled=false;$('start').textContent='▶ NEXT BATTLE';$('campaign').textContent=`REEL ${Math.min(REEL_BATTLES,reelCount)}/5 BATTLES · ${Object.keys(clubs).filter(id=>provinces.some(p=>p.owner===id)).length} CLUBS LEFT`;finished=true;saveProgress();if(REEL_AUTOPLAY)wait(()=>{if(reelCount>=REEL_BATTLES){$('headline').textContent='REEL COMPLETE';$('sub').textContent='';$('mapLabel').textContent='ITALY · AFTER '+REEL_BATTLES+' BATTLES';return}prepareBattle();if(pair&&!finished)autoDrawAndStart()},1200)},BATTLE_DURATION)
+}
+function start(){if(!provincesReady||!pair||playing||drawAnimating)return;if(finished){prepareBattle();if(!pair||finished)return}playing=true;roundN=0;$('start').disabled=true;$('mode').disabled=true;$('start').textContent='BATTLE IN PROGRESS';round()}
+function reset(){if(playing||drawAnimating)return;if(battleIndex&&!confirm('Reset all TEST conquests on this device?'))return;cancel();try{localStorage.removeItem(STORAGE_KEY)}catch(e){}savedStatus='NEW SESSION';battleIndex=0;champion='B';mode=0;roundN=0;finished=false;reelCount=0;for(const p of provinces)p.owner=p.initialOwner;render();prepareBattle();updateStandings();$('mode').disabled=false;if(REEL_AUTOPLAY&&pair&&!finished)wait(()=>autoDrawAndStart(),700)}
+
+// TEST ONLY: municipality boundaries are official ISTAT 2026; assigning an adjacent
+// municipality to the second club is an invented game rule, NOT an official fan geography.
+const DERBIES=[
+ {code:'15',town:'milano',home:'X',away:'J'},
+ {code:'1',town:'torino',home:'Z',away:'Y'},
+ {code:'58',town:'roma',home:'K',away:'E'}
+];
+function municipalityName(p){return String(p.com_name||p.comune||p.name||'').trim().toLowerCase()}
+async function installMunicipalDerbies(group){
+ for(const derby of DERBIES){
+  const url=`https://raw.githubusercontent.com/guglielmo/geojson-italy/main/geojson/limits_P_${derby.code}_municipalities.geojson`;
+  const r=await fetch(url,{cache:'force-cache'});if(!r.ok)throw Error('Municipality HTTP '+r.status+' '+derby.code);
+  const js=await r.json(),features=js.features||[];
+  if(features.length<3)throw Error('Municipal data missing '+derby.code);
+  const valid=features.map(f=>({feature:f,props:f.properties||{}}));
+  const home=valid.find(z=>municipalityName(z.props)===derby.town);
+  if(!home)throw Error('Missing municipality '+derby.town);
+  const homeEdges=segmentSet(home.feature.geometry);
+  const possible=valid.filter(z=>z!==home && Array.from(segmentSet(z.feature.geometry)).some(edge=>homeEdges.has(edge)));
+  if(!possible.length)throw Error('No verified municipality bordering '+derby.town);
+  // Pick the adjoining municipality deterministically. This is a game allocation, not a historical claim.
+  possible.sort((a,b)=>municipalityName(a.props).localeCompare(municipalityName(b.props),'it'));
+  const away=possible[0];
+  // Remove the province polygon: otherwise province + municipality polygons would overlap.
+  for(const old of provinces.filter(p=>p.code===derby.code)){old.path.remove()}
+  provinces=provinces.filter(p=>p.code!==derby.code);
+  for(let index=0;index<valid.length;index++){
+   const z=valid[index],geom=z.feature.geometry;
+   const owner=z===home?derby.home:z===away?derby.away:null;
+   const id=String(z.props.com_istat_code||z.props.com_istat_code_num||index);
+   const code=`m${derby.code}_${id}`;
+   const path=document.createElementNS(NS,'path');path.setAttribute('d',coordsToPath(geom));path.setAttribute('fill-rule','evenodd');path.setAttribute('stroke-linejoin','round');path.setAttribute('stroke-width','.075');path.setAttribute('stroke','#b6c6d4');group.appendChild(path);
+   provinces.push({code,owner,initialOwner:owner,path,geo:geom,municipality:true});
+  }
+ }
+}
+async function load(){const note=document.querySelector('.mapnote');$('start').disabled=true;$('headline').textContent='LOADING PROVINCES';$('sub').textContent='ISTAT DATA REQUIRED FOR BORDER CHECK';try{
+ const response=await fetch(URL,{cache:'force-cache'});if(!response.ok)throw Error('HTTP '+response.status);const geo=await response.json();const data=geo.features||[];if(data.length<100)throw Error('dati italiani incompleti: '+data.length);
+ const group=$('realProvinceLayer');clearSVG(group);provinces=[];
+ const eligibleProvinceCodes=new Set();let provisionalCount=0;
+ for(const f of data){
+  const p=f.properties||{},code=provinceCode(p),pn=provinceName(p);if(!code)throw Error('Missing province code');
+  eligibleProvinceCodes.add(code);
+  let own=null;
+  for(const id of Object.keys(clubs))if(code===clubs[id].code&&!['15','1','58'].includes(code)){own=id;break}
+  if(!own&&!['15','1','58'].includes(code)){own=registerProvinceSlot(code,pn);provisionalCount++}
+  const path=document.createElementNS(NS,'path');path.setAttribute('d',coordsToPath(f.geometry));path.setAttribute('fill-rule','evenodd');path.setAttribute('stroke-linejoin','round');path.setAttribute('stroke-width','.09');path.setAttribute('stroke','#b6c6d4');group.appendChild(path);
+  provinces.push({code,owner:own,initialOwner:own,path,geo:f.geometry});
+ }
+ if(data.length!==110||eligibleProvinceCodes.size!==110)throw Error('Expected 110 unique administrative units');
+ await installMunicipalDerbies(group);
+ if(Object.keys(clubs).filter(id=>!clubs[id].provisional).some(id=>provinces.filter(p=>p.owner===id).length!==1))throw Error('missing or duplicate confirmed club allocation');
+ // Calcolo topologico lineare: solo confini condivisi tra club attivi, evitando 110² confronti pesanti su iPhone.
+ const active=provinces.filter(p=>p.owner);borders=new Map(provinces.map(p=>[p.code,new Set()]));
+ const shared=new Map();for(const p of active){for(const edge of segmentSet(p.geo)){const first=shared.get(edge);if(first&&first!==p.code){borders.get(first).add(p.code);borders.get(p.code).add(first)}else if(!first)shared.set(edge,p.code)}}
+ if(provinces.filter(p=>p.owner).length<110)throw Error('nationwide coverage incomplete');if(!pickPair())throw Error('no verified adjacent pair');
+ provincesReady=true;note.textContent='110 ISTAT UNITS · MUNICIPAL DERBIES · PROVISIONAL CLUBS';$('territoryLayer').style.display='none';$('atlasLayer').style.display='none';restoreProgress();render();prepareBattle();updateStandings();if(ADMIN_MODE)document.querySelector('.app').classList.add('admin');if(REEL_AUTOPLAY){$('mode').disabled=!ADMIN_MODE;$('start').disabled=true;wait(()=>{if(pair&&!finished)autoDrawAndStart()},900)}
+ }catch(err){provincesReady=false;$('start').disabled=true;$('headline').textContent='BATTLE LOCKED';$('sub').textContent='GEOGRAPHIC DATA NOT VERIFIED';note.textContent='BORDERS UNAVAILABLE · TEST';console.warn('Province error',err)}
+}
+$('start').addEventListener('click',start);$('reset').addEventListener('click',reset);$('mode').addEventListener('click',()=>{if(REEL_AUTOPLAY)return;mode=(mode+1)%4;updateCards()});load();
+})();</script></body></html>
